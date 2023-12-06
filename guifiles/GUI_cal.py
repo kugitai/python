@@ -6,7 +6,7 @@ layout = [[sg.Text(key='output')],
           [sg.Text('二つ目の数字は？')],
           [sg.Input(key=('num2'))],
           [sg.Text('+,-,*,/を選んでください')],
-          [sg.Button('+'),sg.Button('-'),sg.Button('*'),sg.Button('/')]]
+          [sg.Button('+'),sg.Button('-'),sg.Button('×'),sg.Button('÷')]]
 window = sg.Window('計算機',layout)
 while True:
     try:
@@ -16,9 +16,9 @@ while True:
             d = (float(value['num1'])+float(value['num2']))
         elif event == '-':
             d = (float(value['num1'])-float(value['num2']))
-        elif event == '*':
+        elif event == '×':
             d = (float(value['num1'])*float(value['num2']))
-        elif event == '/':
+        elif event == '÷':
             d = (float(value['num1'])/float(value['num2']))
         window['output'].update(f'答えは{d}です')
         if event == 'AC':
