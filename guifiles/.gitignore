@@ -155,4 +155,4 @@ cython_debug/
 .venv
 
 #DS_store
-.DS_store
+.DS_Store
