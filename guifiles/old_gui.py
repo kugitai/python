@@ -1,22 +1,32 @@
 import PySimpleGUI as sg
 import datetime
-layout = [[sg.Text(key='output')],
-          [sg.Text('西暦でお願いします')],
-          [sg.Input(key='berthyear')],
+layout = [[sg.Text('ここに年齢が出ます',key='output')],
+          [sg.Text('生年月日をお願いします')],
+          [sg.Input(key='berthyear',size=('4','16')),sg.I(key='berthmonth',size=('1','4')),sg.I(key='berthday',size=('1','4'))],
           [sg.Button('年齢確認')]]
 window = sg.Window('年齢',layout)
-dt_now = datetime.datetime.now().year
+now_year = datetime.datetime.now().year
+now_month = datetime.datetime.now().month
+now_day = datetime.datetime.now().day
+print(now_year,now_month,now_day)
 while True:
     event,value = window.read()
+    bearthyear = int(value['berthyear'])
+    bearthmonth = int(value['berthmonth'])
+    bearthday = int(value['berthday'])
     if event == sg.WINDOW_CLOSED:
         break
     if value['berthyear'] == '':
-        window['output'].update('生まれた年を入力して下さい')
+        window['output'].update('生まれた年を「西暦」で入力して下さい')
         continue
     if int(value['berthyear']) <= 0:
         window['output'].update('正の値をいれてください')
         continue
-    old = dt_now - int(value['berthyear'])
+    old = now_year - bearthyear
+    if bearthmonth > now_month:
+        old-=1
+    if bearthmonth == now_month and bearthday > now_day:
+        old-=1
     if old < 0:
         window['output'].update('現在の年数を超える数値は入れないでください')
         continue
