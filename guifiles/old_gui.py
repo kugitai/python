@@ -27,4 +27,4 @@ while True:
     if old < 0:
         window['output'].update('現在の年数を超える数値は入れないでください')
         continue
-    window['output'].update(f'年齢は{old}歳です')
+    window['output'].update(f'年齢は満{old}歳です')
