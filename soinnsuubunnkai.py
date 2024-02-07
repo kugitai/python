@@ -11,7 +11,6 @@ for i in range(2,num+1):
             break
     else:
         sosuu_l.append(i)
-print(sosuu_l)
 
 while True:
     if num % int(sosuu_l[x]) != 0:
