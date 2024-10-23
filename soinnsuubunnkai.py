@@ -22,4 +22,5 @@ while True:
         continue
     if num == 1:
         break
+print(sosuu_l)
 print(kekka_l)
