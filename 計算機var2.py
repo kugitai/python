@@ -14,7 +14,7 @@ while True:
             d = (a/c)
         else:
             print('演算子以外もしくは英数以外で入力されました')
-        print(f'答えは{0}です')
+        print(f'答えは{d}です')
         e = input('終了する際は終了と入力してください')
         if e == '終了':
             break
